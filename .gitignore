@@ -1,0 +1,23 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# Dataset 
+Scene*/
+flagged/
+data/
+datasets/
+
+# Model checkpoints
+*.pth
+*.ckpt
+
+# Feature embeddings
+*.npz
+
+# Experiment outputs
+*.png
+*.jpg
+
+# Local config / env
+.env
