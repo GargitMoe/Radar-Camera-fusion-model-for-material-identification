@@ -1,23 +1,41 @@
 # Python cache
 __pycache__/
 *.pyc
+*.pyo
 
-# Dataset 
+# CUHK Lab Dataset — raw radar & camera data, NOT public
 Scene*/
 flagged/
-data/
 datasets/
 
 # Model checkpoints
 *.pth
 *.ckpt
+*.h5
 
-# Feature embeddings
+# Pre-computed embeddings & feature files
 *.npz
+*.npy
 
-# Experiment outputs
-*.png
+# Experiment intermediate outputs (keep only final result images)
 *.jpg
+config_map.png
+curve_acc.png
+curve_loss.png
+env.png
+PeakAMP.png
+RadarConf.png
+SLR.png
+
+# Keep final confusion matrices as examples
+!FuseConf.png
+!VisualConf.png
 
 # Local config / env
 .env
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/

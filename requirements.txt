@@ -1,0 +1,8 @@
+torch>=2.0.0
+transformers>=4.30.0
+scipy
+numpy
+Pillow
+matplotlib>=3.5
+seaborn
+scikit-learn
