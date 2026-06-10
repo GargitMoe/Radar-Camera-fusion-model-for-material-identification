@@ -134,6 +134,33 @@ python analysis/tsne_visual.py
 
 ---
 
+## MATLAB Radar Preprocessing
+
+Raw `.bin` data from the TI IWR6843 mmWave radar is processed in MATLAB to generate Range-Angle (RA) maps. The pipeline is in the `matlab/` directory:
+
+```
+Raw .bin (IWR6843 DCA1000)
+        │
+        ▼
+IWR6843_readDCA1000.m      ── Read binary → complex I/Q
+        │
+        ▼
+ConvertBin2ChannelData.m   ── Organize into channel matrices
+        │
+        ▼
+CalculateRAmap.m           ── 2D FFT → RA map (.mat)
+```
+
+**Quick start** — from raw `.bin` to RA map in one step:
+
+```matlab
+compute_RA_from_bin       % MATLAB: load bin → save RA map
+```
+
+See [`matlab/README.md`](matlab/README.md) for full details.
+
+---
+
 ## Project Structure
 
 ```
@@ -155,6 +182,19 @@ CNN/
 ├── utils/
 │   ├── SigLipMINC23.py        # SigLIP embedding extraction
 │   └── SiglipTest.py          # SigLIP inference test
+├── matlab/                      # Radar preprocessing (.bin → RA map)
+│   ├── README.md
+│   ├── compute_RA_from_bin.m
+│   ├── IWR6843_readDCA1000.m
+│   ├── ConvertBin2ChannelData.m
+│   ├── CalculateRAmap.m
+│   ├── CalculateRAmapNew.m
+│   ├── Output.m
+│   └── analysis/
+│       ├── CalculateChanFeature.m
+│       ├── CalculateChirpFeature.m
+│       ├── CompareTimeDomain.m
+│       └── EarlyLate.m
 ├── analysis/
 │   ├── tsne_radar.py          # t-SNE visualization (radar features)
 │   └── tsne_visual.py         # t-SNE visualization (visual features)
